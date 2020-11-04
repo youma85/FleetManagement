@@ -5,5 +5,6 @@ export class Driver {
               public firstName?: string,
               public lastName?: string,
               public drivingLicense?: string,
-              public vehicle?: Vehicle){}
+              public vehicle?: Vehicle,
+              public photo?: string){}
 }
