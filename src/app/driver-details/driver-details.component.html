@@ -1,1 +1,32 @@
-<p>driver-details works!</p>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>First Name</mat-label>
+    <input matInput placeholder="First Name">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Last Name</mat-label>
+    <input matInput placeholder="Last Name">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Driving License</mat-label>
+    <input matInput placeholder="Driving License">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Vehicle</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.id">
+        {{vehicle.brand}}: {{vehicle.registrationNumber}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <input placeholder="Photo" type="file">
+
+  <div class="button-row">
+    <button mat-flat-button color="primary">Save</button>
+  </div>
+
+</form>
