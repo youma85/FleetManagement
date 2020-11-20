@@ -19,6 +19,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { VehicleDialogComponent } from './vehicle-dialog/vehicle-dialog.component';
 import {MatTableModule} from '@angular/material/table';
+import { ShadowDirective } from './utils/shadow.directive';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {MatTableModule} from '@angular/material/table';
     DriverListComponent,
     DriverItemComponent,
     DriverDetailsComponent,
-    VehicleDialogComponent
+    VehicleDialogComponent,
+    ShadowDirective
   ],
   imports: [
     BrowserModule,

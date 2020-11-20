@@ -1,7 +1,7 @@
 <h1>List of Drivers</h1>
 
 <div class="cardList">
-  <mat-card class="example-card" *ngFor="let driver of drivers">
+  <mat-card class="example-card" *ngFor="let driver of drivers" appShadow>
     <mat-card-header>
       <div mat-card-avatar [style.backgroundImage]="getImgContent(driver.photo)" style="background-size: cover;" ></div>
       <mat-card-title>{{driver.firstName}} {{driver.lastName}}</mat-card-title>
