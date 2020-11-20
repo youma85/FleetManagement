@@ -1,21 +1,21 @@
 # Step 01
  
 
-###Create the Application 
+### Create the Application 
 
 ```sh
 $ ng new FleetManagement
 ```
 
 
-###Add NgMaterial
+### Add NgMaterial
 
 ```sh
 $ ng add @angular/material
 ```
 
 
-###Add a navBar
+### Add a navBar
 
 I will use the toolbar of angular material to create the navbar
 
@@ -50,7 +50,7 @@ add material modules to appModule:
     MatIconModule,
     MatButtonModule
 
-###Create needed components
+### Create needed components
 
 I will create the needed components for the app for example driver and vehicle
 
@@ -74,6 +74,10 @@ $ ng g c driver-item
 $ ng g c driver-details
 ```
 
+```sh
+$ ng g c vehicle-dialog
+```
+
 vehicle.component.html
 ```
 <mat-card>
@@ -87,7 +91,7 @@ vehicle.component.html
 
 add MatCardModule to appModule
 
-###Create needed classes
+### Create needed classes
 
 Create Vehicle class with this command:
 
@@ -297,4 +301,95 @@ Of course the following material modules must be added on the import array of ap
     MatSelectModule,
     MatFormFieldModule,
     MatInputModule,
+```
+
+##  implement the Vehicle pages
+
+First of all we have to add the module MatTableModule in the app.module file.
+
+### Vehicles List
+
+vehicle.component.html
+```
+<div class="button-row">
+  <button mat-flat-button color="primary">New Vehicle</button>
+</div>
+
+<mat-table [dataSource]="dataSource" class="width-table">
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>No.</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.id }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="registrationNumber">
+    <mat-header-cell *matHeaderCellDef>Registraion Number</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.registrationNumber }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="brand">
+    <mat-header-cell *matHeaderCellDef>Brand</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.brand }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="currentKm">
+    <mat-header-cell *matHeaderCellDef>Current Km</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.currentKm }}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+
+
+<mat-card>
+  <app-vehicle-dialog></app-vehicle-dialog>
+</mat-card>
+```
+
+vehicle.component.ts
+
+```
+  displayedColumns: string[] = ['id', 'registrationNumber', 'brand', 'currentKm'];
+
+  vehicles: Vehicle[] = [
+    new Vehicle(1, '13442-a-6', 'Volvo', 157000),
+    new Vehicle(2,  '6497-b-8', 'Ford', 225867),
+    new Vehicle(3,  '24761-c-13', 'Renault', 1482)
+  ];
+
+  dataSource: MatTableDataSource<Vehicle>;
+
+  constructor() { }
+
+  ngOnInit(): void {
+    this.dataSource = new MatTableDataSource(this.vehicles);
+  }
+```
+
+### Vehicle dialog
+
+htlm:
+```
+<form class="example-form">
+
+  <mat-form-field fxFlex floatLabel="auto"  class="example-full-width">
+    <mat-label>Registration Number</mat-label>
+    <input matInput placeholder="Registration Number">
+  </mat-form-field>
+
+  <mat-form-field fxFlex floatLabel="auto"  class="example-full-width">
+    <mat-label>Brand</mat-label>
+    <input matInput placeholder="Brand">
+  </mat-form-field>
+
+  <mat-form-field fxFlex floatLabel="auto"  class="example-full-width">
+    <mat-label>Current Km</mat-label>
+    <input matInput placeholder="Current Km">
+  </mat-form-field>
+
+
+  <div class="button-row">
+    <button mat-flat-button color="primary">Save</button>
+  </div>
+</form>
 ```

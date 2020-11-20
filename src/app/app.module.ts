@@ -17,6 +17,8 @@ import {MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { VehicleDialogComponent } from './vehicle-dialog/vehicle-dialog.component';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     VehicleComponent,
     DriverListComponent,
     DriverItemComponent,
-    DriverDetailsComponent
+    DriverDetailsComponent,
+    VehicleDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatSelectModule,
     MatFormFieldModule,
     MatInputModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

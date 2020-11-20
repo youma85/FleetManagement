@@ -1,1 +1,33 @@
-<p>vehicle works!</p>
+<div class="button-row">
+  <button mat-flat-button color="primary">New Vehicle</button>
+</div>
+
+<mat-table [dataSource]="dataSource" class="width-table">
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>No.</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.id }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="registrationNumber">
+    <mat-header-cell *matHeaderCellDef>Registraion Number</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.registrationNumber }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="brand">
+    <mat-header-cell *matHeaderCellDef>Brand</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.brand }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="currentKm">
+    <mat-header-cell *matHeaderCellDef>Current Km</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ row.currentKm }}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+
+
+<mat-card>
+  <app-vehicle-dialog></app-vehicle-dialog>
+</mat-card>
