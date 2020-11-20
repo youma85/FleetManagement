@@ -6,4 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  loadedPage = 'drivers';
+
+  onNavigate(page: string): void {
+    this.loadedPage = page;
+  }
 }
