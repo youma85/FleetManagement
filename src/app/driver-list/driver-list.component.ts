@@ -36,4 +36,8 @@ export class DriverListComponent implements OnInit {
   getImgContent(img: string): SafeUrl {
     return this.sanitizer.bypassSecurityTrustStyle(`url(${img})`);
   }
+
+  onDriverSelected(driver: Driver): void {
+    console.log(driver);
+  }
 }

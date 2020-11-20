@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Driver} from '../model/driver';
+import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-driver-item',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DriverItemComponent implements OnInit {
 
-  constructor() { }
+  @Input() driver: Driver;
+  @Output() driverSelected = new EventEmitter<void>();
+
+  constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
   }
 
+  getImgContent(img: string): SafeUrl {
+    return this.sanitizer.bypassSecurityTrustStyle(`url(${img})`);
+  }
+
+  onClick(): void{
+    this.driverSelected.emit();
+  }
 }

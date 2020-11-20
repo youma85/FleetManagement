@@ -16,26 +16,3 @@
 .btn{
   margin: 5px;
 }
-/*item*/
-.card-image{
- height: 300px;
- width: 300px;
- object-fit: contain;
-}
-
-.card-content{
-  font-size: large;
-  font-weight: bolder;
-  margin: auto;
-  text-align: center;
-}
-
-.mat-card-actions .flex-spacer{
-  width: 100%;
-}
-
-.example-card {
-  width: 300px;
-  flex: 0 1 calc(23% - 32px);
-  margin: 32px;
-}
