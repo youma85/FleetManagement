@@ -1,7 +1,13 @@
 <mat-card>
-  <app-driver-list></app-driver-list>
+  <app-driver-list (driverSelected)="currentDriver = $event"></app-driver-list>
 </mat-card>
 
 <mat-card>
-  <app-driver-details></app-driver-details>
+  <app-driver-details
+    *ngIf="currentDriver; else noDriver"
+    [driver]="currentDriver"></app-driver-details>
+
+  <ng-template #noDriver>
+    <p>No Driver selected</p>
+  </ng-template>
 </mat-card>

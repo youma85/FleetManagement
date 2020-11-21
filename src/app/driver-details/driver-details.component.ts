@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Vehicle} from '../model/vehicle';
+import {Driver} from '../model/driver';
 
 @Component({
   selector: 'app-driver-details',
@@ -7,6 +8,8 @@ import {Vehicle} from '../model/vehicle';
   styleUrls: ['./driver-details.component.css']
 })
 export class DriverDetailsComponent implements OnInit {
+
+  @Input() driver: Driver;
 
   vehicles: Vehicle[] = [
     new Vehicle(1, '13442-a-6', 'Volvo', 157000),
@@ -17,5 +20,8 @@ export class DriverDetailsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onImageUploaded($event: Event): void {
   }
 }

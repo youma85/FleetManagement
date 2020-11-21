@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Driver} from '../model/driver';
 import {Vehicle} from '../model/vehicle';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
@@ -9,6 +9,8 @@ import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
   styleUrls: ['./driver-list.component.css']
 })
 export class DriverListComponent implements OnInit {
+
+  @Output() driverSelected = new EventEmitter<Driver>();
 
   vehicles: Vehicle[] = [
     new Vehicle(1, '13442-a-6', 'Volvo', 157000),
@@ -38,6 +40,6 @@ export class DriverListComponent implements OnInit {
   }
 
   onDriverSelected(driver: Driver): void {
-    console.log(driver);
+    this.driverSelected.emit(driver);
   }
 }

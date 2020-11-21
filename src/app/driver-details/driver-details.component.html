@@ -1,29 +1,35 @@
 <form class="example-form">
   <mat-form-field class="example-full-width">
     <mat-label>First Name</mat-label>
-    <input matInput placeholder="First Name">
+    <input matInput placeholder="First Name"  value="{{driver.firstName}}">
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
     <mat-label>Last Name</mat-label>
-    <input matInput placeholder="Last Name">
+    <input matInput placeholder="Last Name" value="{{driver.lastName}}">
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
     <mat-label>Driving License</mat-label>
-    <input matInput placeholder="Driving License">
+    <input matInput placeholder="Driving License" value="{{driver.drivingLicense}}">
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
     <mat-label>Vehicle</mat-label>
-    <mat-select>
+    <mat-select [value]="driver.vehicle.id">
       <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.id">
         {{vehicle.brand}}: {{vehicle.registrationNumber}}
       </mat-option>
     </mat-select>
   </mat-form-field>
 
-  <input placeholder="Photo" type="file">
+  <section>
+    <img mat-card-image src="{{driver.photo}}" class="card-image" >
+  </section>
+
+  <section>
+    <input placeholder="Photo" type="file" (change)="onImageUploaded($event)">
+  </section>
 
   <div class="button-row">
     <button mat-flat-button color="primary">Save</button>
