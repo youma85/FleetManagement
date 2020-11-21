@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Driver} from '../model/driver';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
+import {DriverService} from '../services/driver.service';
 
 @Component({
   selector: 'app-driver-item',
@@ -10,9 +11,9 @@ import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 export class DriverItemComponent implements OnInit {
 
   @Input() driver: Driver;
-  @Output() driverSelected = new EventEmitter<void>();
 
-  constructor(private sanitizer: DomSanitizer) { }
+  constructor(private sanitizer: DomSanitizer,
+              private driverService: DriverService) { }
 
   ngOnInit(): void {
   }
@@ -22,6 +23,6 @@ export class DriverItemComponent implements OnInit {
   }
 
   onClick(): void{
-    this.driverSelected.emit();
+    this.driverService.driverSelected.emit(this.driver);
   }
 }

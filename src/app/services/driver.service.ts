@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {Driver} from '../model/driver';
 import {VehicleService} from './vehicle.service';
 
@@ -6,6 +6,8 @@ import {VehicleService} from './vehicle.service';
   providedIn: 'root'
 })
 export class DriverService {
+
+  driverSelected = new EventEmitter<Driver>();
 
   drivers = [];
 

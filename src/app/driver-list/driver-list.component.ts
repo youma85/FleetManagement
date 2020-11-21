@@ -9,9 +9,6 @@ import {DriverService} from '../services/driver.service';
   styleUrls: ['./driver-list.component.css']
 })
 export class DriverListComponent implements OnInit {
-
-  @Output() driverSelected = new EventEmitter<Driver>();
-
   drivers: Driver[] =  [];
 
   // DomSanitizer helps preventing Cross Site Scripting Security bugs (XSS)
@@ -25,9 +22,5 @@ export class DriverListComponent implements OnInit {
 
   getImgContent(img: string): SafeUrl {
     return this.sanitizer.bypassSecurityTrustStyle(`url(${img})`);
-  }
-
-  onDriverSelected(driver: Driver): void {
-    this.driverSelected.emit(driver);
   }
 }
