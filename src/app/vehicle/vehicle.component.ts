@@ -24,4 +24,9 @@ export class VehicleComponent implements OnInit {
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource(this.vehicles);
   }
+
+  onVehicleAdded(vehicle: Vehicle): void {
+    this.vehicles.push(vehicle);
+    this.dataSource = new MatTableDataSource(this.vehicles);
+  }
 }
