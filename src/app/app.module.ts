@@ -20,6 +20,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { VehicleDialogComponent } from './vehicle-dialog/vehicle-dialog.component';
 import {MatTableModule} from '@angular/material/table';
 import { ShadowDirective } from './utils/shadow.directive';
+import { FirstCharacterUpperCasePipe } from './utils/firstcharcateruppercase.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ShadowDirective } from './utils/shadow.directive';
     DriverItemComponent,
     DriverDetailsComponent,
     VehicleDialogComponent,
-    ShadowDirective
+    ShadowDirective,
+    FirstCharacterUpperCasePipe
   ],
   imports: [
     BrowserModule,
