@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Vehicle} from '../model/vehicle';
 import {Driver} from '../model/driver';
+import {VehicleService} from '../services/vehicle.service';
 
 @Component({
   selector: 'app-driver-details',
@@ -11,15 +12,12 @@ export class DriverDetailsComponent implements OnInit {
 
   @Input() driver: Driver;
 
-  vehicles: Vehicle[] = [
-    new Vehicle(1, '13442-a-6', 'Volvo', 157000),
-    new Vehicle(2,  '6497-b-8', 'Ford', 225867),
-    new Vehicle(3,  '24761-c-13', 'Renault', 1482)
-  ];
+  vehicles: Vehicle[] = [];
 
-  constructor() { }
+  constructor(private vehicleService: VehicleService) { }
 
   ngOnInit(): void {
+    this.vehicles = this.vehicleService.getVehicles();
   }
 
   onImageUploaded($event: Event): void {
