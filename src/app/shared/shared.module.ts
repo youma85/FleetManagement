@@ -17,6 +17,7 @@ import {FirstCharacterUpperCasePipe} from '../utils/firstcharcateruppercase.pipe
 import {ShadowDirective} from '../utils/shadow.directive';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [
     FirstCharacterUpperCasePipe,
@@ -35,7 +36,8 @@ import {FormsModule} from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
   exports: [
     BrowserModule,
@@ -52,7 +54,8 @@ import {FormsModule} from '@angular/forms';
     FirstCharacterUpperCasePipe,
     ShadowDirective,
     RouterModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ]
 })
 export class SharedModule { }

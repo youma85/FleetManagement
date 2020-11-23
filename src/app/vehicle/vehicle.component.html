@@ -1,5 +1,5 @@
 <div class="button-row">
-  <button mat-flat-button color="primary">New Vehicle</button>
+  <button mat-flat-button color="primary" (click)="openNewDialog()">New Vehicle</button>
 </div>
 
 <mat-table [dataSource]="dataSource" class="width-table">
@@ -24,10 +24,5 @@
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns" (click)="showDataInDialog(row.id)"></mat-row>
 </mat-table>
-
-
-<mat-card>
-  <app-vehicle-dialog (vehicleAdded)="onVehicleAdded($event)"></app-vehicle-dialog>
-</mat-card>
