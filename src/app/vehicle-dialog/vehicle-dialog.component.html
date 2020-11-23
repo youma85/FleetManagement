@@ -1,22 +1,22 @@
-<div class="example-form">
+<form (ngSubmit)="onSave(form)" #form="ngForm">
 
   <mat-form-field fxFlex floatLabel="auto"  class="example-full-width">
     <mat-label>Registration Number</mat-label>
-    <input matInput placeholder="Registration Number" #registrationNumber>
+    <input matInput placeholder="Registration Number" name="registrationNumber" ngModel>
   </mat-form-field>
 
   <mat-form-field fxFlex floatLabel="auto"  class="example-full-width">
     <mat-label>Brand</mat-label>
-    <input matInput placeholder="Brand" #brand>
+    <input matInput placeholder="Brand" name="brand" ngModel>
   </mat-form-field>
 
   <mat-form-field fxFlex floatLabel="auto"  class="example-full-width">
     <mat-label>Current Km</mat-label>
-    <input matInput placeholder="Current Km" #currentKm>
+    <input matInput placeholder="Current Km" name="currentKm" ngModel>
   </mat-form-field>
 
 
   <div class="button-row">
-    <button mat-flat-button color="primary" (click)="onSave()">Save</button>
+    <button mat-flat-button color="primary" type="submit">Save</button>
   </div>
-</div>
+</form>

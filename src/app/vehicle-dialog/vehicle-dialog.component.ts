@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild} from '@
 import {Vehicle} from '../model/vehicle';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {VehicleService} from '../services/vehicle.service';
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-vehicle-dialog',
@@ -9,9 +10,7 @@ import {VehicleService} from '../services/vehicle.service';
   styleUrls: ['./vehicle-dialog.component.css']
 })
 export class VehicleDialogComponent implements OnInit, AfterViewInit {
-  @ViewChild('registrationNumber') registrationNumberInput: ElementRef;
-  @ViewChild('brand') brandInput: ElementRef;
-  @ViewChild('currentKm') currentKmInput: ElementRef;
+  @ViewChild('form') vehicleForm: NgForm;
 
   editMode = false;
 
@@ -29,32 +28,31 @@ export class VehicleDialogComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void{
     if (this.vehicle.id !== undefined){
       this.editMode = true;
-      this.registrationNumberInput.nativeElement.value = this.vehicle.registrationNumber;
-      this.brandInput.nativeElement.value = this.vehicle.brand;
-      this.currentKmInput.nativeElement.value = this.vehicle.currentKm;
+      setTimeout(() => {
+        this.vehicleForm.setValue({
+          registrationNumber: this.vehicle.registrationNumber,
+          brand: this.vehicle.brand,
+          currentKm: this.vehicle.currentKm,
+        });
+      });
     }else {
       this.editMode = false;
     }
   }
 
 
-  onSave(): void {
-    const registrationNumber = this.registrationNumberInput.nativeElement.value;
-    const brand = this.brandInput.nativeElement.value;
-    const currentKm = this.currentKmInput.nativeElement.value;
+  onSave(form: NgForm): void {
+    this.vehicle.registrationNumber = form.value.registrationNumber;
+    this.vehicle.brand = form.value.brand;
+    this.vehicle.currentKm = form.value.currentKm;
 
     if (this.editMode){
-      this.vehicleService.updateVehicle(new Vehicle(this.vehicle.id, registrationNumber, brand, currentKm));
+      this.vehicleService.updateVehicle( this.vehicle);
     }else {
-      this.vehicleService.addVehicle(new Vehicle(0, registrationNumber, brand, currentKm));
+      this.vehicleService.addVehicle( this.vehicle);
     }
 
     this.vehicleService.vehicleChanged.next();
-
-    this.registrationNumberInput.nativeElement.value = '';
-    this.brandInput.nativeElement.value = '';
-    this.currentKmInput.nativeElement.value = '';
-
     this.dialogRef.close();
   }
 }
