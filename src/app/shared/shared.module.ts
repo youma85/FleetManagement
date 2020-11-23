@@ -15,6 +15,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FirstCharacterUpperCasePipe} from '../utils/firstcharcateruppercase.pipe';
 import {ShadowDirective} from '../utils/shadow.directive';
+import {RouterModule} from '@angular/router';
 @NgModule({
   declarations: [
     FirstCharacterUpperCasePipe,
@@ -47,7 +48,8 @@ import {ShadowDirective} from '../utils/shadow.directive';
     MatInputModule,
     MatTableModule,
     FirstCharacterUpperCasePipe,
-    ShadowDirective
+    ShadowDirective,
+    RouterModule
   ]
 })
 export class SharedModule { }
