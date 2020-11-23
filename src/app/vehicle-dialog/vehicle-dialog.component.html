@@ -2,21 +2,21 @@
 
   <mat-form-field fxFlex floatLabel="auto"  class="example-full-width">
     <mat-label>Registration Number</mat-label>
-    <input matInput placeholder="Registration Number" name="registrationNumber" ngModel>
+    <input matInput placeholder="Registration Number" name="registrationNumber" ngModel required>
   </mat-form-field>
 
   <mat-form-field fxFlex floatLabel="auto"  class="example-full-width">
     <mat-label>Brand</mat-label>
-    <input matInput placeholder="Brand" name="brand" ngModel>
+    <input matInput placeholder="Brand" name="brand" ngModel required>
   </mat-form-field>
 
   <mat-form-field fxFlex floatLabel="auto"  class="example-full-width">
     <mat-label>Current Km</mat-label>
-    <input matInput placeholder="Current Km" name="currentKm" ngModel>
+    <input matInput placeholder="Current Km" name="currentKm" ngModel required type="number">
   </mat-form-field>
 
 
   <div class="button-row">
-    <button mat-flat-button color="primary" type="submit">Save</button>
+    <button mat-flat-button color="primary" type="submit" [disabled]="!form.valid">Save</button>
   </div>
 </form>
