@@ -7,6 +7,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {VehicleModule} from './vehicle/vehicle.module';
 import {DriverModule} from './driver/driver.module';
+import {AppRoutingModule} from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {DriverModule} from './driver/driver.module';
     BrowserAnimationsModule,
     SharedModule,
     VehicleModule,
-    DriverModule
+    DriverModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
