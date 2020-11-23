@@ -3,16 +3,28 @@
   <mat-form-field fxFlex floatLabel="auto"  class="example-full-width">
     <mat-label>Registration Number</mat-label>
     <input matInput placeholder="Registration Number" name="registrationNumber" ngModel required>
+
+    <mat-error *ngIf="form.controls['registrationNumber']?.errors?.required">
+      Registration Number is <strong>required</strong>
+    </mat-error>
   </mat-form-field>
 
   <mat-form-field fxFlex floatLabel="auto"  class="example-full-width">
     <mat-label>Brand</mat-label>
     <input matInput placeholder="Brand" name="brand" ngModel required>
+
+    <mat-error *ngIf="form.controls['brand']?.errors?.required">
+      Brand is <strong>required</strong>
+    </mat-error>
   </mat-form-field>
 
   <mat-form-field fxFlex floatLabel="auto"  class="example-full-width">
     <mat-label>Current Km</mat-label>
     <input matInput placeholder="Current Km" name="currentKm" ngModel required type="number">
+
+    <mat-error *ngIf="form.controls['currentKm']?.errors?.required">
+      Current Km is <strong>required</strong>
+    </mat-error>
   </mat-form-field>
 
 
