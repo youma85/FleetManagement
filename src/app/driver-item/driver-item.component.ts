@@ -25,7 +25,7 @@ export class DriverItemComponent implements OnInit {
   }
 
   onClick(id: number): void{
-    this.driverService.driverSelected.emit(this.driver);
+    this.driverService.driverSelected.next(this.driver);
     this.router.navigate(['/drivers', id]);
   }
 }

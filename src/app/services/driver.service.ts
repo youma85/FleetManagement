@@ -1,13 +1,14 @@
-import {EventEmitter, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Driver} from '../model/driver';
 import {VehicleService} from './vehicle.service';
+import {Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DriverService {
 
-  driverSelected = new EventEmitter<Driver>();
+  driverSelected = new Subject<Driver>();
 
   drivers = [];
 
@@ -34,6 +35,10 @@ export class DriverService {
   }
 
   saveDriver(driver: Driver): void {
-    this.drivers.push(driver);
+    if (driver.id === undefined){
+      this.drivers.push(driver);
+    } else {
+      this.drivers[driver.id] = driver;
+    }
   }
 }

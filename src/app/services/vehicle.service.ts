@@ -1,12 +1,13 @@
-import {EventEmitter, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Vehicle} from '../model/vehicle';
+import {Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VehicleService {
 
-  vehicleChanged = new EventEmitter<void>();
+  vehicleChanged = new Subject<void>();
 
   vehicles: Vehicle[] = [
     new Vehicle(0, '13442-a-6', 'Volvo', 157000),
