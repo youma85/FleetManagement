@@ -17,6 +17,7 @@
 
 
   <div class="button-row">
-    <button mat-flat-button color="primary" type="submit" [disabled]="!form.valid">Save</button>
+    <button mat-flat-button color="primary" [disabled]="!form.valid" >{{ editMode? 'Update': 'Add' }}</button>
+    <button mat-flat-button color="accent" type="button"  (click)="form.reset();">Clear</button>
   </div>
 </form>
