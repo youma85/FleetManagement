@@ -16,6 +16,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FirstCharacterUpperCasePipe} from '../utils/firstcharcateruppercase.pipe';
 import {ShadowDirective} from '../utils/shadow.directive';
 import {RouterModule} from '@angular/router';
+import {FormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     FirstCharacterUpperCasePipe,
@@ -34,6 +35,7 @@ import {RouterModule} from '@angular/router';
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
+    FormsModule
   ],
   exports: [
     BrowserModule,
@@ -49,7 +51,8 @@ import {RouterModule} from '@angular/router';
     MatTableModule,
     FirstCharacterUpperCasePipe,
     ShadowDirective,
-    RouterModule
+    RouterModule,
+    FormsModule
   ]
 })
 export class SharedModule { }
