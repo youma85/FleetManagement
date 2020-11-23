@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, EventEmitter, Inject, OnInit, Output, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
 import {Vehicle} from '../model/vehicle';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {VehicleService} from '../services/vehicle.service';

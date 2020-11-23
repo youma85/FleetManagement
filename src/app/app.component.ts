@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  loadedPage = 'drivers';
-
-  onNavigate(page: string): void {
-    this.loadedPage = page;
-  }
 }

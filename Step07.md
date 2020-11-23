@@ -1,4 +1,4 @@
-# Step 07 : Rooting
+# Step 07 : Routing
 
 ###Generate routing module
 

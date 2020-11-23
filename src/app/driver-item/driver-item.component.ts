@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Driver} from '../model/driver';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 import {DriverService} from '../services/driver.service';

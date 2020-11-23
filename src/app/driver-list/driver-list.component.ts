@@ -1,8 +1,8 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Driver} from '../model/driver';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 import {DriverService} from '../services/driver.service';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-driver-list',
