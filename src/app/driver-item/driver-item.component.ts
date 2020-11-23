@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Driver} from '../model/driver';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 import {DriverService} from '../services/driver.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-driver-item',
@@ -13,7 +14,8 @@ export class DriverItemComponent implements OnInit {
   @Input() driver: Driver;
 
   constructor(private sanitizer: DomSanitizer,
-              private driverService: DriverService) { }
+              private driverService: DriverService,
+              private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -22,7 +24,8 @@ export class DriverItemComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustStyle(`url(${img})`);
   }
 
-  onClick(): void{
+  onClick(id: number): void{
     this.driverService.driverSelected.emit(this.driver);
+    this.router.navigate(['/drivers', id]);
   }
 }

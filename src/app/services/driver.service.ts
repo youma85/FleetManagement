@@ -15,11 +15,11 @@ export class DriverService {
     const vehicles = this.vehicleService.getVehicles();
 
     this.drivers =  [
-      new Driver(1, 'Arbi', 'Ahmed', '13456/b1',
+      new Driver(0, 'Arbi', 'Ahmed', '13456/b1',
         vehicles[0], 'assets/img/driver1.jpg'),
-      new Driver(2, 'Charaf', 'Hamid', '176546/b3',
+      new Driver(1, 'Charaf', 'Hamid', '176546/b3',
         vehicles[1], 'assets/img/driver2.jpeg'),
-      new Driver(3, 'Jilali', 'Jawad', '94821/f6',
+      new Driver(2, 'Jilali', 'Jawad', '94821/f6',
         vehicles[2], 'assets/img/driver3.png')
     ];
 
