@@ -18,6 +18,9 @@ import {ShadowDirective} from '../utils/shadow.directive';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import {AngularFireModule} from '@angular/fire';
+import {environment} from '../../environments/environment';
 @NgModule({
   declarations: [
     FirstCharacterUpperCasePipe,
@@ -37,7 +40,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatInputModule,
     MatTableModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule
   ],
   exports: [
     BrowserModule,
@@ -55,7 +60,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     ShadowDirective,
     RouterModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    AngularFireModule,
+    AngularFireStorageModule
   ]
 })
 export class SharedModule { }

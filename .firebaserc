@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "fleet-51254"
+  },
+  "targets": {
+    "fleet-51254": {
+      "hosting": {
+        "FleetManagement": [
+          "fleet-51254"
+        ]
+      }
+    }
+  }
+}
