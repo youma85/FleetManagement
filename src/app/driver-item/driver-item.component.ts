@@ -3,6 +3,7 @@ import {Driver} from '../model/driver';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 import {DriverService} from '../services/driver.service';
 import {Router} from '@angular/router';
+import {AngularFireStorage} from '@angular/fire/storage';
 
 @Component({
   selector: 'app-driver-item',
@@ -13,11 +14,18 @@ export class DriverItemComponent implements OnInit {
 
   @Input() driver: Driver;
 
+  imgSrc: string;
+
   constructor(private sanitizer: DomSanitizer,
               private driverService: DriverService,
-              private router: Router) { }
+              private router: Router,
+              private storage: AngularFireStorage) { }
 
   ngOnInit(): void {
+    const ref = this.storage.ref(this.driver.photo);
+    ref.getDownloadURL().subscribe((url) => {
+      this.imgSrc = url;
+    });
   }
 
   getImgContent(img: string): SafeUrl {
