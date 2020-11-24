@@ -17,11 +17,11 @@ export class DriverService {
 
     this.drivers =  [
       new Driver(0, 'Arbi', 'Ahmed', '13456/b1',
-        vehicles[0], 'assets/img/driver1.jpg'),
+        vehicles[0], 'images/driver0.png'),
       new Driver(1, 'Charaf', 'Hamid', '176546/b3',
-        vehicles[1], 'assets/img/driver2.jpeg'),
+        vehicles[1], 'images/driver1.jpg'),
       new Driver(2, 'Jilali', 'Jawad', '94821/f6',
-        vehicles[2], 'assets/img/driver3.png')
+        vehicles[2], 'images/driver2.jpeg')
     ];
 
   }
