@@ -36,6 +36,7 @@ export class DriverService {
 
   saveDriver(driver: Driver): void {
     if (driver.id === undefined){
+      driver.id = this.drivers.length;
       this.drivers.push(driver);
     } else {
       this.drivers[driver.id] = driver;

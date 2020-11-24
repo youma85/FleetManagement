@@ -5,6 +5,7 @@ import { DriverItemComponent } from '../driver-item/driver-item.component';
 import { DriverDetailsComponent } from '../driver-details/driver-details.component';
 import { DriverComponent } from '../driver/driver.component';
 import {SharedModule} from '../shared/shared.module';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,9 +14,10 @@ import {SharedModule} from '../shared/shared.module';
     DriverItemComponent,
     DriverDetailsComponent,
   ],
-  imports: [
-    SharedModule
-  ],
+    imports: [
+        SharedModule,
+        ReactiveFormsModule
+    ],
   exports: [
     DriverComponent,
     DriverListComponent,
