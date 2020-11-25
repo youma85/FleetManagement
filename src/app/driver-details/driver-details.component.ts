@@ -37,7 +37,9 @@ export class DriverDetailsComponent implements OnInit {
               private storage: AngularFireStorage) { }
 
   ngOnInit(): void {
-    this.vehicles = this.vehicleService.getVehicles();
+    this.vehicleService.getVehicles().subscribe((data: Vehicle[]) => {
+      this.vehicles = data;
+    });
 
     this.route.params.subscribe((params: Params) => {
       this.id = +params.id;
