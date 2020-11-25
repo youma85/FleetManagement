@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Vehicle} from '../model/vehicle';
-import {Subject} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -9,28 +10,24 @@ export class VehicleService {
 
   vehicleChanged = new Subject<void>();
 
-  vehicles: Vehicle[] = [
-    new Vehicle(0, '13442-a-6', 'Volvo', 157000),
-    new Vehicle(1,  '6497-b-8', 'Ford', 225867),
-    new Vehicle(2,  '24761-c-13', 'Renault', 1482)
-  ];
-  constructor() { }
+  url = 'http://localhost:3000/vehicles';
 
-  getVehicles(): Vehicle[]{
-    return this.vehicles;
+  vehicles: Vehicle[] = [];
+  constructor(private  http: HttpClient) { }
+
+  getVehicles(): Observable<any> {
+    return this.http.get<any>(this.url);
   }
 
-  addVehicle(vehicle: Vehicle): Vehicle[]{
-    vehicle.id = this.vehicles.length;
-    this.vehicles.push(vehicle);
-    return this.vehicles;
+  addVehicle(vehicle: Vehicle): Observable<any>{
+    return this.http.post(this.url, vehicle);
   }
 
-  getVehicleById(id: any): Vehicle {
-    return this.vehicles[id];
+  getVehicleById(id: any): Observable<any> {
+    return this.http.get<any>(`${this.url}/${id}`);
   }
 
-  updateVehicle(vehicle: Vehicle): void {
-    this.vehicles[vehicle.id] = vehicle;
+  updateVehicle(vehicle: Vehicle): Observable<any>{
+    return this.http.patch(`${this.url}/${vehicle.id}`, vehicle);
   }
 }

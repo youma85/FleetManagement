@@ -1,19 +1,19 @@
 {
   "vehicles": [
     {
-      "id": "0",
+      "id": 0,
       "registrationNumber": "13442-a-6",
       "brand": "Volvo",
       "currentKm": "157000"
     },
     {
-      "id": "1",
-      "Ford": "6497-b-8",
+      "id": 1,
+      "registrationNumber": "6497-b-8",
       "brand": "Volvo",
       "currentKm": "225867"
     },
     {
-      "id": "2",
+      "id": 2,
       "registrationNumber": "24761-c-13",
       "brand": "Renault",
       "currentKm": "1482"
@@ -21,7 +21,7 @@
   ],
   "drivers": [
     {
-      "id": "0",
+      "id": 0,
       "firstName": "Ahmed",
       "lastName": "Arbi",
       "drivingLicense": "13456/b1",
@@ -29,7 +29,7 @@
       "photo": "images/driver0.png"
     },
     {
-      "id": "1",
+      "id": 1,
       "firstName": "Hamid",
       "lastName": "Charaf",
       "drivingLicense": "176546/b3",
@@ -37,7 +37,7 @@
       "photo": "images/driver1.jpg"
     },
     {
-      "id": "2",
+      "id": 2,
       "firstName": "Jilali",
       "lastName": "Jawad",
       "drivingLicense": "94821/f6",

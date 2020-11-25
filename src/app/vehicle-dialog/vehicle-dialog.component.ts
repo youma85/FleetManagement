@@ -1,8 +1,8 @@
-import {AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
 import {Vehicle} from '../model/vehicle';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {VehicleService} from '../services/vehicle.service';
-import {NgForm} from "@angular/forms";
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-vehicle-dialog',
@@ -18,6 +18,7 @@ export class VehicleDialogComponent implements OnInit, AfterViewInit {
 
   constructor(public dialogRef: MatDialogRef<VehicleDialogComponent>,
               private vehicleService: VehicleService,
+              private cdr: ChangeDetectorRef,
               @Inject(MAT_DIALOG_DATA) public data: Vehicle) {
     this.vehicle = data;
   }
@@ -38,6 +39,8 @@ export class VehicleDialogComponent implements OnInit, AfterViewInit {
     }else {
       this.editMode = false;
     }
+
+    this.cdr.detectChanges();
   }
 
 
@@ -47,12 +50,15 @@ export class VehicleDialogComponent implements OnInit, AfterViewInit {
     this.vehicle.currentKm = form.value.currentKm;
 
     if (this.editMode){
-      this.vehicleService.updateVehicle( this.vehicle);
+      this.vehicleService.updateVehicle(this.vehicle).subscribe(value => {
+        this.vehicleService.vehicleChanged.next();
+        this.dialogRef.close();
+      });
     }else {
-      this.vehicleService.addVehicle( this.vehicle);
+      this.vehicleService.addVehicle(this.vehicle).subscribe(value => {
+        this.vehicleService.vehicleChanged.next();
+        this.dialogRef.close();
+      });
     }
-
-    this.vehicleService.vehicleChanged.next();
-    this.dialogRef.close();
   }
 }

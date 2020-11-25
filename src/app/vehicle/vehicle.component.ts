@@ -20,16 +20,15 @@ export class VehicleComponent implements OnInit {
               public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource(this.vehicleService.getVehicles());
+    this.vehicleService.getVehicles().subscribe((data: Vehicle[]) => {
+      this.dataSource = new MatTableDataSource(data);
+    });
 
     this.vehicleService.vehicleChanged.subscribe(() => {
-      this.dataSource = new MatTableDataSource(this.vehicleService.getVehicles());
+      this.vehicleService.getVehicles().subscribe((data: Vehicle[]) => {
+        this.dataSource = new MatTableDataSource(data);
+      });
     });
-  }
-
-  onVehicleAdded(vehicle: Vehicle): void {
-    this.vehicleService.getVehicles().push(vehicle);
-    this.dataSource = new MatTableDataSource(this.vehicleService.getVehicles());
   }
 
   openNewDialog(): void {
@@ -40,9 +39,11 @@ export class VehicleComponent implements OnInit {
   }
 
   showDataInDialog(id: any): void {
-    this.dialog.open(VehicleDialogComponent, {
-      width: '250px',
-      data: this.vehicleService.getVehicleById(id)
+    this.vehicleService.getVehicleById(id).subscribe(value => {
+      const dialogRef = this.dialog.open(VehicleDialogComponent, {
+        width: '300px',
+        data: value
+      });
     });
   }
 }
