@@ -21,6 +21,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../../environments/environment';
+import {HttpClientModule} from "@angular/common/http";
 @NgModule({
   declarations: [
     FirstCharacterUpperCasePipe,
@@ -42,7 +43,8 @@ import {environment} from '../../environments/environment';
     FormsModule,
     MatDialogModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    HttpClientModule
   ],
   exports: [
     BrowserModule,
@@ -62,7 +64,8 @@ import {environment} from '../../environments/environment';
     FormsModule,
     MatDialogModule,
     AngularFireModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    HttpClientModule
   ]
 })
 export class SharedModule { }
