@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-content>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <h2>Log In</h2>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="Email" name="email"  ngModel  required email>
+        <mat-error>
+          Please provide a valid email address
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput type="password" placeholder="Password" name="password" ngModel  required minlength="6">
+        <mat-error>
+          Please provide a valid password
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!f.valid">{{ isLoginMode? 'login': 'Sign Up'}}</button>
+      |
+      <button mat-raised-button color="primary" (click)="onSwitchMode()" type="button">Switch to {{ !isLoginMode? 'login': 'Sign Up'}}</button>
+    </form>
+  </mat-card-content>
+</mat-card>

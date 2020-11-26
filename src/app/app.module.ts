@@ -8,11 +8,14 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {VehicleModule} from './vehicle/vehicle.module';
 import {DriverModule} from './driver/driver.module';
 import {AppRoutingModule} from './app-routing.module';
+import { AuthComponent } from './auth/auth.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +23,8 @@ import {AppRoutingModule} from './app-routing.module';
     SharedModule,
     VehicleModule,
     DriverModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
