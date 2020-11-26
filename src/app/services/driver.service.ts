@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Driver} from '../model/driver';
 import {VehicleService} from './vehicle.service';
-import {Subject} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -12,34 +13,27 @@ export class DriverService {
 
   drivers = [];
 
-  constructor(private vehicleService: VehicleService) {
-    const vehicles = this.vehicleService.getVehicles();
+  url = 'http://localhost:3000';
 
-    this.drivers =  [
-      new Driver(0, 'Arbi', 'Ahmed', '13456/b1',
-        vehicles[0], 'images/driver0.png'),
-      new Driver(1, 'Charaf', 'Hamid', '176546/b3',
-        vehicles[1], 'images/driver1.jpg'),
-      new Driver(2, 'Jilali', 'Jawad', '94821/f6',
-        vehicles[2], 'images/driver2.jpeg')
-    ];
+  driverEndPoint = `${this.url}/drivers`;
 
+  constructor(private vehicleService: VehicleService,
+              private  http: HttpClient) {
   }
 
-  getDrivers(): Driver[]{
-    return this.drivers;
+  getDrivers(): Observable<any> {
+    return this.http.get<any[]>(this.driverEndPoint);
   }
 
-  getDriver(id: number): Driver {
-    return this.drivers[id];
+  getDriver(id: number): Observable<any>{
+    return this.http.get<any>(`${this.driverEndPoint}/${id}`);
   }
 
-  saveDriver(driver: Driver): void {
+  saveDriver(driver: Driver): Observable<any>{
     if (driver.id === undefined){
-      driver.id = this.drivers.length;
-      this.drivers.push(driver);
+      return this.http.post(this.driverEndPoint, driver);
     } else {
-      this.drivers[driver.id] = driver;
+      return  this.http.patch(`${this.driverEndPoint}/${driver.id}`, driver);
     }
   }
 }

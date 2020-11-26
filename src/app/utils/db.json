@@ -25,7 +25,9 @@
       "firstName": "Ahmed",
       "lastName": "Arbi",
       "drivingLicense": "13456/b1",
-      "vehicle": "0",
+      "vehicle": {
+        "id": 0
+      },
       "photo": "images/driver0.png"
     },
     {
@@ -33,7 +35,9 @@
       "firstName": "Hamid",
       "lastName": "Charaf",
       "drivingLicense": "176546/b3",
-      "vehicle": "1",
+      "vehicle": {
+        "id": 1
+      },
       "photo": "images/driver1.jpg"
     },
     {
@@ -41,7 +45,9 @@
       "firstName": "Jilali",
       "lastName": "Jawad",
       "drivingLicense": "94821/f6",
-      "vehicle": "2",
+      "vehicle": {
+        "id": 2
+      },
       "photo": "images/driver2.jpeg"
     }
   ]

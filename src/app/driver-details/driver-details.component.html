@@ -1,4 +1,4 @@
-<form class="example-form" [formGroup]="driverForm" (ngSubmit)="saveDriver()">
+<form class="example-form" *ngIf="driverForm" [formGroup]="driverForm" (ngSubmit)="saveDriver()">
   <mat-form-field class="example-full-width">
     <mat-label>First Name</mat-label>
     <input matInput placeholder="First Name" name="firstName"  formControlName="firstName">
@@ -16,7 +16,7 @@
 
   <mat-form-field class="example-full-width">
     <mat-label>Vehicle</mat-label>
-    <mat-select name="vehicle" formControlName="vehicle">
+    <mat-select name="vehicle" formControlName="vehicle" [compareWith]="compareFn">
       <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle">
         {{vehicle.brand}}: {{vehicle.registrationNumber}}
       </mat-option>

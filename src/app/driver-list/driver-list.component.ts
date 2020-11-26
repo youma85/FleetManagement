@@ -3,6 +3,7 @@ import {Driver} from '../model/driver';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 import {DriverService} from '../services/driver.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {VehicleService} from "../services/vehicle.service";
 
 @Component({
   selector: 'app-driver-list',
@@ -17,11 +18,19 @@ export class DriverListComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer,
               private driverService: DriverService,
               private router: Router,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private vehicleService: VehicleService) {
   }
 
   ngOnInit(): void {
-    this.drivers = this.driverService.getDrivers();
+    this.driverService.getDrivers().subscribe((data: Driver[]) => {
+      this.drivers = data;
+      this.drivers.forEach((driver) => {
+        this.vehicleService.getVehicleById(driver.vehicle.id).subscribe(value => {
+          driver.vehicle = value;
+        });
+      });
+    });
   }
 
   getImgContent(img: string): SafeUrl {

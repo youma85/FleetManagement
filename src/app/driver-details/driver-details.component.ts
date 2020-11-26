@@ -30,6 +30,8 @@ export class DriverDetailsComponent implements OnInit {
 
   oldPhotoPath: string;
 
+  compareFn: ((f1: any, f2: any) => boolean) | null = this.compareByValue;
+
   constructor(private vehicleService: VehicleService,
               private driverService: DriverService,
               private route: ActivatedRoute,
@@ -43,7 +45,6 @@ export class DriverDetailsComponent implements OnInit {
 
     this.route.params.subscribe((params: Params) => {
       this.id = +params.id;
-      this.driver = this.driverService.getDriver(this.id);
       this.editMode =  params.id != null;
       this.initForm();
     });
@@ -60,7 +61,9 @@ export class DriverDetailsComponent implements OnInit {
       if (this.driver.id !== undefined) {
         photoName = 'driver' + this.id + '.' + namePart[namePart.length - 1];
       } else {
-        photoName = 'driver' + this.driverService.getDrivers().length + '.' + namePart[namePart.length - 1];
+        this.driverService.getDrivers().subscribe(data => {
+          photoName = 'driver' + data.length + '.' + namePart[namePart.length - 1];
+        });
       }
       const filePath = `images/${photoName}`;
 
@@ -70,17 +73,19 @@ export class DriverDetailsComponent implements OnInit {
           finalize(() => {
             fileRef.getDownloadURL().subscribe((url) => {
               this.driver.photo = filePath;
-              this.driverService.saveDriver(this.driver);
-              this.driverService.driverSelected.next(this.driver);
-              this.router.navigate(['/drivers']);
+              this.driverService.saveDriver(this.driver).subscribe(response => {
+                this.driverService.driverSelected.next(this.driver);
+                this.router.navigate(['/drivers']);
+              });
             });
           })
         ).subscribe();
     } else {
       this.driver.photo = this.oldPhotoPath;
-      this.driverService.saveDriver(this.driver);
-      this.driverService.driverSelected.next(this.driver);
-      this.router.navigate(['/drivers']);
+      this.driverService.saveDriver(this.driver).subscribe(response => {
+        this.driverService.driverSelected.next(this.driver);
+        this.router.navigate(['/drivers']);
+      });
     }
   }
 
@@ -104,18 +109,32 @@ export class DriverDetailsComponent implements OnInit {
     let vehicle;
 
     if (this.editMode) {
-      const driver = this.driverService.getDriver(this.id);
-      firstName = driver.firstName;
-      lastName = driver.lastName;
-      drivingLicense = driver.drivingLicense;
-      vehicle = driver.vehicle;
-      const ref = this.storage.ref(driver.photo);
-      this.oldPhotoPath = driver.photo;
-      ref.getDownloadURL().subscribe((url) => {
-        this.imgSrc = url;
-      });
-    }
+      this.driverService.getDriver(this.id).subscribe(driver => {
+        firstName = driver.firstName;
+        lastName = driver.lastName;
+        drivingLicense = driver.drivingLicense;
 
+        this.oldPhotoPath = driver.photo;
+
+        this.vehicleService.getVehicleById(driver.vehicle.id).subscribe((value: Vehicle) => {
+          vehicle = value;
+          this.createFormGroup(firstName, lastName, drivingLicense, vehicle);
+        });
+
+        const ref = this.storage.ref(driver.photo);
+        ref.getDownloadURL().subscribe((url) => {
+          this.imgSrc = url;
+        });
+      });
+
+    } else {
+      this.createFormGroup(firstName, lastName, drivingLicense, vehicle);
+      this.imgSrc = 'assets/img/Placeholder.jpg ';
+      this.selectedImage = null;
+    }
+  }
+
+  private createFormGroup(firstName: string, lastName: string, drivingLicense: string, vehicle: string): void {
     this.driverForm = new FormGroup({
       firstName: new FormControl(firstName),
       lastName: new FormControl(lastName),
@@ -123,7 +142,9 @@ export class DriverDetailsComponent implements OnInit {
       vehicle: new FormControl(vehicle),
       photo: new FormControl()
     });
-    this.imgSrc = 'assets/img/Placeholder.jpg ';
-    this.selectedImage = null;
+  }
+
+  compareByValue(f1: any, f2: any): boolean {
+    return f1 && f2 && f1.id === f2.id;
   }
 }
