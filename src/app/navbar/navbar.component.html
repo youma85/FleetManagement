@@ -3,7 +3,8 @@
 
   <div class="spacer"></div>
 
-  <a mat-button routerLink="/drivers" routerLinkActive="active">Drivers</a>
-  <a mat-button routerLink="/vehicles" routerLinkActive="active">Vehicles</a>
-  <a mat-raised-button  routerLink="/login" color="warn">Sign Up</a>
+  <a mat-button routerLink="/drivers" routerLinkActive="active" *ngIf="isAuthenticated">Drivers</a>
+  <a mat-button routerLink="/vehicles" routerLinkActive="active" *ngIf="isAuthenticated">Vehicles</a>
+  <a mat-raised-button routerLink="/login" color="warn" *ngIf="!isAuthenticated">Sign Up</a>
+  <a mat-raised-button routerLink="/login" color="warn" *ngIf="isAuthenticated">Logout</a>
 </mat-toolbar>
