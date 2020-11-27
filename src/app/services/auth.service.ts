@@ -46,6 +46,7 @@ export class AuthService {
 
   logout(): void {
     this.user.next(null);
+    localStorage.removeItem('userData');
   }
 
   private handleAuthentication(email: string, token: string): void {
