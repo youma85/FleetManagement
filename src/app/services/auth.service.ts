@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable, Subject} from 'rxjs';
+import {BehaviorSubject, Observable } from 'rxjs';
 import {User} from '../model/user.model';
 import {tap} from 'rxjs/operators';
 
@@ -13,7 +13,11 @@ export interface AuthResponseData {
 })
 export class AuthService {
 
-  user = new Subject<User>();
+  // subject: reactivly update the user interface
+  // BehaviorSubject: like subject but it gave immediate access
+  // to previous emitted values even we didn't subscribe at the point of time they was emitted
+  // it takes default value in params
+  user = new BehaviorSubject<User>(null);
 
   constructor(private http: HttpClient) { }
 

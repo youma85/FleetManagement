@@ -10,6 +10,8 @@ import {DriverModule} from './driver/driver.module';
 import {AppRoutingModule} from './app-routing.module';
 import { AuthComponent } from './auth/auth.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {AuthInterceptorService} from "./services/auth-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import {ReactiveFormsModule} from '@angular/forms';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
