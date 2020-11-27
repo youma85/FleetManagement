@@ -6,5 +6,5 @@
   <a mat-button routerLink="/drivers" routerLinkActive="active" *ngIf="isAuthenticated">Drivers</a>
   <a mat-button routerLink="/vehicles" routerLinkActive="active" *ngIf="isAuthenticated">Vehicles</a>
   <a mat-raised-button routerLink="/login" color="warn" *ngIf="!isAuthenticated">Sign Up</a>
-  <a mat-raised-button routerLink="/login" color="warn" *ngIf="isAuthenticated">Logout</a>
+  <a mat-raised-button (click)="onLogout()" color="accent" *ngIf="isAuthenticated">Logout</a>
 </mat-toolbar>
