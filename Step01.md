@@ -78,7 +78,7 @@ $ ng g c driver-details
 $ ng g c vehicle-dialog
 ```
 
-vehicle.component.html
+driver.component.html
 ```
 <mat-card>
   <app-driver-list></app-driver-list>
