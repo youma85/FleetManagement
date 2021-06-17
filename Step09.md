@@ -1,6 +1,6 @@
 # Step 09 : Forms
 
-###Adding forms to vehicles dialog
+### Adding forms to vehicles dialog
 
 Of course the FormsModule must be presents on the sharedModule
 
@@ -78,7 +78,7 @@ ngAfterViewInit(): void{
   }
 ```
 
-###Adding validation to vehicle dialog
+### Adding validation to vehicle dialog
 
 add required for inputs like:
 
@@ -93,7 +93,7 @@ and disable save button if a field is not filled
 <button mat-flat-button color="primary" type="submit" [disabled]="!form.valid">Save</button
 ```
 
-###Adding clear button
+### Adding clear button
 add a button to reset values
 
 ```
@@ -101,7 +101,7 @@ add a button to reset values
     <button mat-flat-button color="accent" type="button"  (click)="form.reset();">Clear</button>
 ```
 
-###Adding message error
+### Adding message error
 
 get errors of the element of form, for example:
 
@@ -111,7 +111,7 @@ get errors of the element of form, for example:
     </mat-error>
 ```
 
-###improve Style
+### Improve Style
 
 ```
 .button-row button,
