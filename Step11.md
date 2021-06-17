@@ -1,6 +1,6 @@
 # Step 11 : Forms Reactive
 
-###Change the path of photos
+### Change the path of photos
 
 Change path of existing driver's photo on the driver service:
 
@@ -11,7 +11,7 @@ the name of the photo will be : driver+id.extension
 
 upload the existing photo with the new names in the images folder.
 
-###Get drivers images of the item page from fireStorage 
+### Get drivers images of the item page from fireStorage 
 
 create a variable to stock the url of the photo.
 
@@ -40,7 +40,7 @@ And in The html file change driver.photo by imgSrc:
 ```
 
 
-###Managing Driver Details with reactive forms:
+### Managing Driver Details with reactive forms:
 
 First of all add ReactiveFormsModule to driverModule.
 
