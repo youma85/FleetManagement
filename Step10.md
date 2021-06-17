@@ -1,6 +1,6 @@
 # Step 10 : Firebase
 
-###Create Firebase Account and project
+### Create Firebase Account and project
 
 On the firebase console create a new project.
 
@@ -8,13 +8,13 @@ Go to the storage page, and Click on Start.
 
 Create a folder, and name it: images
 
-###Install Firebase CLI globally using 
+### Install Firebase CLI globally using 
 
 ```sh
 > npm install -g firebase-tools
 ```
 
-###Build the project
+### Build the project
 
 ```sh
 > ng build
@@ -23,7 +23,7 @@ Create a folder, and name it: images
 
 will create a dist directory
 
-###initialize the connection to your project
+### Initialize the connection to your project
 
 ```sh
 > firebase init
@@ -41,7 +41,7 @@ Choose These responses for the other questions:
 ? File dist/FleetManagement/index.html already exists. Overwrite? Yes
 ```
 
-###Install the angular Firebase library
+### Install the angular Firebase library
 
 ```sh
 > ng add @angular/fire
@@ -49,7 +49,7 @@ Choose These responses for the other questions:
 
 choose the project in firebase recently created.
 
-###Deploy the application
+### Deploy the application
 
 ```sh
 > ng deploy
@@ -71,7 +71,7 @@ service firebase.storage {
 
 and publish the modification
 
-###Create web application on firebase
+### Create web application on firebase
 
 Go to the home page and click on "Add an application"
 
@@ -97,7 +97,7 @@ export const environment = {
 };
 ```
 
-###configure sharedModule
+### configure sharedModule
 add AngularFireModule and AngularFireStorageModule:
 
 ```
