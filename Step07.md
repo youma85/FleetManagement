@@ -35,7 +35,7 @@ In the app component replace existing code by:
 <router-outlet></router-outlet>
 ```
 
-###Adding router Links on navbar
+### Adding router Links on navbar
 
 Add router link in the nav bar
 
