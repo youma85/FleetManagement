@@ -1,6 +1,6 @@
 # Step 08 : Cleaning code & Observables
 
-###Cleaning code
+### Cleaning code
 
 remove pageSelected event handler from the app component:
 ```
@@ -19,7 +19,7 @@ and:
 
 Also, remove unused Imports from DriverItemComponent, DriverListComponent and VehicleDialogComponent.
 
-###Adding subject
+### Adding subject
 
 replace EventEmitter by Subject in the service, for example:
 
