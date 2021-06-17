@@ -53,7 +53,7 @@ Add list of drivers in the driver service
 ```
 
 
-###Using list from services
+### Using list from services
 
 change the existing code of these components by:
 
@@ -97,7 +97,7 @@ change the existing code of these components by:
 ```
 
 
-###Using services for cross-component communication
+### Using services for cross-component communication
 
 create an eventEmitter in the driver service.
 
