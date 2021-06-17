@@ -1,6 +1,6 @@
 # Step 07 : Routing
 
-###Generate routing module
+### Generate routing module
 
 Add a new module
 ```sh
@@ -55,7 +55,7 @@ Change style of the active route
 
 And remove the unused onSelect method from typescript
 
-###Add redirection to the Details page when clicking on new Driver Button
+### Add redirection to the Details page when clicking on new Driver Button
 
 First of All add RouterModule to the shared Module.
 
@@ -89,7 +89,7 @@ And the click handler method, to navigate to the new route:
   }
 ```
 
-###Add creating new driver
+### Add creating new driver
 On the driver service add the following methods:
 
 ```
@@ -147,7 +147,7 @@ In the typescipt file add the following code :
   }
 ```
 
-###Handle editing drivers
+### Handle editing drivers
 First of all correct the ids:
 ```
   new Driver(0, 'Arbi', 'Ahmed', '13456/b1', vehicles[0], 'assets/img/driver1.jpg'),
@@ -170,7 +170,7 @@ html:
 <button mat-raised-button (click)="onClick(driver.id)">Show</button>
 ``` 
 
-###Use vehicle-dialog component as a material dialog and manage Vehicles
+### Use vehicle-dialog component as a material dialog and manage Vehicles
 
 Change the vehicle Service as following:
 
