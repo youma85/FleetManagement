@@ -8,6 +8,22 @@ Go to the storage page, and Click on Start.
 
 Create a folder, and name it: images
 
+### Use firebase storage to store Images
+
+On Rules tab over the Storage page allow read and write without authentication:
+
+```
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write;//: if request.auth != null;
+    }
+  }
+}
+```
+
+and publish the modification
+
 ### Install Firebase CLI globally using 
 
 ```sh
@@ -23,23 +39,6 @@ Create a folder, and name it: images
 
 will create a dist directory
 
-### Initialize the connection to your project
-
-```sh
-> firebase init
-```
-
-With spaceBar choose Hosting and Storage.
-Choose Use an existing project
-Select the project you previously created on Firebase.
-Choose These responses for the other questions:
-
-```
-? What do you want to use as your public directory? dist/FleetManagement
-? Configure as a single-page app (rewrite all urls to /index.html)? Yes
-? Set up automatic builds and deploys with GitHub? No
-? File dist/FleetManagement/index.html already exists. Overwrite? Yes
-```
 
 ### Install the angular Firebase library
 
@@ -54,22 +53,6 @@ choose the project in firebase recently created.
 ```sh
 > ng deploy
 ```
-
-###Use firebase storage to store Images
-
-On Rules tab over the Storage page allow read and write without authentication:
-
-```
-service firebase.storage {
-  match /b/{bucket}/o {
-    match /{allPaths=**} {
-      allow read, write;//: if request.auth != null;
-    }
-  }
-}
-```
-
-and publish the modification
 
 ### Create web application on firebase
 
