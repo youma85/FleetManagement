@@ -3,7 +3,7 @@
 ### install json server auth
    
 ```sh
-> npm install -D json-server json-server-auth
+> npm install -g express json-server json-server-auth
 ```
 
 ### create a json file
