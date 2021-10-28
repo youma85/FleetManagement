@@ -194,7 +194,7 @@ vehicleChanged = new EventEmitter<void>();
   }
 
   updateVehicle(vehicle: Vehicle): void {
-    this.vehicles[vehicle.id] = vehicle;
+    this.vehicles[vehicle.id!] = vehicle;
   }
 ```
 
