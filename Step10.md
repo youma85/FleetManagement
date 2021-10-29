@@ -24,11 +24,14 @@ service firebase.storage {
 
 and publish the modification
 
-### Install Firebase CLI globally using 
+
+### Install the angular Firebase library
 
 ```sh
-> npm install -g firebase-tools
+> ng add @angular/fire
 ```
+
+choose the project in firebase recently created.
 
 ### Build the project
 
@@ -38,15 +41,6 @@ and publish the modification
 
 
 will create a dist directory
-
-
-### Install the angular Firebase library
-
-```sh
-> ng add @angular/fire
-```
-
-choose the project in firebase recently created.
 
 ### Deploy the application
 
