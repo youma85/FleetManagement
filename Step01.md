@@ -4,14 +4,14 @@
 ### Create the Application 
 
 ```sh
-$ ng new FleetManagement
+ng new FleetManagement
 ```
 
 
 ### Add NgMaterial
 
 ```sh
-$ ng add @angular/material
+ng add @angular/material
 ```
 
 
@@ -20,7 +20,7 @@ $ ng add @angular/material
 I will use the toolbar of angular material to create the navbar
 
 ```sh
-$ ng g c navbar
+ng g c navbar
 ```
 
 ***navbar.component.html***
@@ -55,27 +55,27 @@ add material modules to appModule:
 I will create the needed components for the app for example driver and vehicle
 
 ```sh
-$ ng g c driver
+ng g c driver
 ```
 
 ```sh
-$ ng g c vehicle
+ng g c vehicle
 ```
 
 ```sh
-$ ng g c driver-list
+ng g c driver-list
 ```
 
 ```sh
-$ ng g c driver-item
+ng g c driver-item
 ```
 
 ```sh
-$ ng g c driver-details
+ng g c driver-details
 ```
 
 ```sh
-$ ng g c vehicle-dialog
+ng g c vehicle-dialog
 ```
 
 driver.component.html
@@ -96,7 +96,7 @@ add MatCardModule to appModule
 Create Vehicle class with this command:
 
 ```sh
-$ ng g class model/vehicle
+ng g class model/vehicle
 ```
 
 ```
@@ -111,7 +111,7 @@ export class Vehicle {
 Create Driver class with this command:
 
 ```sh
-$ ng g class model/driver
+ng g class model/driver
 ```
 
 add the code bellow:
@@ -126,6 +126,15 @@ export class Driver {
               public drivingLicense?: string,
               public vehicle?: Vehicle,
               public photo?: string){}
+}
+```
+
+## Change tsconfig
+```
+{
+  "compilerOptions": {
+    "strictNullChecks": false,
+  }
 }
 ```
 
