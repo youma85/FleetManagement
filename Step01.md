@@ -78,6 +78,14 @@ ng g c driver-details
 ng g c vehicle-dialog
 ```
 
+
+app.component.html
+```
+<app-navbar></app-navbar>
+<app-driver></app-driver>
+<app-vehicle></app-vehicle>
+```
+
 driver.component.html
 ```
 <mat-card>
