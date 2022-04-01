@@ -5,7 +5,7 @@
 Creat new directive to apply Shadow effect to Driver card element
 
 ```sh
-$ ng g d utils/shadow
+ng g d utils/shadow
 ```
 
 Add the following code :
@@ -35,7 +35,7 @@ export class ShadowDirective {
 }
 ```
 
-To apply the directive add selector appShadow to the mat-card element of the driverList Component:
+To apply the directive, add the selector appShadow to the mat-card element of the driverList Component:
 
 ```
 ...
