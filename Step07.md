@@ -35,6 +35,8 @@ In the app component replace existing code by:
 <router-outlet></router-outlet>
 ```
 
+Add the AppRoutingModule in the imports array of the AppModule.
+
 ### Adding router Links on navbar
 
 Add router link in the nav bar
@@ -130,9 +132,9 @@ In the typescipt file add the following code :
     this.vehicles = this.vehicleService.getVehicles();
     
     this.route.params.subscribe((params: Params) => {
-      this.id = +params.id;
+      this.id = +params['id'];
       this.driver = this.driverService.getDriver(this.id);
-      this.editMode =  params.id != null;
+      this.editMode =  params['id'] != null;
       if (!this.editMode){
         this.driver = new Driver();
         this.driver.vehicle = new Vehicle();
@@ -256,6 +258,8 @@ We gonna also reload datasource when adding or updating:
 Finally, we have to change the vehicle dialog component:
 
 ```
+  export class VehicleDialogComponent implements OnInit, AfterViewInit {
+  ...
   editMode = false;
 
   vehicle: Vehicle;
