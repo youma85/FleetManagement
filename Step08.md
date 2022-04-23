@@ -21,7 +21,7 @@ Also, remove unused Imports from DriverItemComponent, DriverListComponent and Ve
 
 ### Adding subject
 
-replace EventEmitter by Subject in the service, for example:
+replace EventEmitter by Subject in the driver service, for example:
 
 ```
 driverSelected = new Subject<Driver>();
