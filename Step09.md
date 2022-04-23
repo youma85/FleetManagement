@@ -106,7 +106,7 @@ add a button to reset values
 get errors of the element of form, for example:
 
 ```
-    <mat-error *ngIf="form.controls['registrationNumber']?.errors?.required">
+    <mat-error *ngIf="form.controls['registrationNumber']?.errors && form.controls['registrationNumber']?.errors['required']">
       Registration Number is <strong>required</strong>
     </mat-error>
 ```
