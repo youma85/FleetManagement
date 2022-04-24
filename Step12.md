@@ -8,7 +8,32 @@
 
 ### create a json file
 
-create a data file that contains vehicles and drivers
+create a data file that contains vehicles and drivers:
+{
+  "vehicles": [
+    {
+      "id": 0,
+      "registrationNumber": "13442-a-6",
+      "brand": "Volvo",
+      "currentKm": "157000"
+    },
+    ...
+  ],
+  "drivers": [
+    {
+      "id": 0,
+      "firstName": "Ahmed",
+      "lastName": "Arbi",
+      "drivingLicense": "13456/b1",
+      "vehicle": {
+        "id": 0
+      },
+      "photo": "images/driver0.png"
+    },
+    ...
+  ],
+  "users": []
+}
 
 **Start the server**
 
@@ -28,7 +53,7 @@ Add HttpClientModule to shared Module.
 
 ### Manage Vehicles with API
 
-**Driver Service**
+**Vehicle Service**
 
 Remove list from service, and change all method by using the httpClient Object:
 
@@ -147,8 +172,7 @@ Put the vehicle object instead of the id in the drivers list, for example:
 
   driverEndPoint = `${this.url}/drivers`;
 
-  constructor(private vehicleService: VehicleService,
-              private  http: HttpClient) {
+  constructor(private  http: HttpClient) {
   }
 
   getDrivers(): Observable<any> {
