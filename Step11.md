@@ -67,6 +67,13 @@ Edit saveDriver on the service, as follows to handle the id of new driver:
     oldPhotoPath: string;
    ```
     * Add private storage: AngularFireStorage to the constructor
+   ```
+    constructor(private vehicleService: VehicleService,
+              private driverService: DriverService,
+              private route: ActivatedRoute,
+              private storage: AngularFireStorage,
+              private router: Router) { }
+   ```
     * Initialize the form in a separate method:
     ```
   initForm(): void {
@@ -103,15 +110,17 @@ Edit saveDriver on the service, as follows to handle the id of new driver:
   
   ```
     this.route.params.subscribe((params: Params) => {
-      this.id = +params.id;
+      this.id = +params['id'];
       this.driver = this.driverService.getDriver(this.id);
-      this.editMode =  params.id != null;
+      this.editMode =  params['id'] != null;
       this.initForm();
     });
     ```
     * Change the save Method as:
     
     ```
+    import {finalize} from "rxjs";
+    ...
     saveDriver(): void {
         this.driver = this.driverForm.value;
         if (this.editMode) {
