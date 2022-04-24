@@ -28,10 +28,18 @@ and publish the modification
 ### Install the angular Firebase library
 
 ```sh
-> ng add @angular/fire
+ng add @angular/fire
 ```
 
 choose the project in firebase recently created.
+
+IF it's blocked try the following commands:
+
+```sh
+firebase login
+firebase init
+ng add @angular/fire
+```
 
 ### Build the project
 
