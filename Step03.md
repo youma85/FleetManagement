@@ -134,7 +134,7 @@ On the driver component change the call use of the driver details component by:
 
 In case of the current Driver is selected , we gonna show his details, else a message will be displayed.
 
-###Adding vehicle using local reference and event emitter 
+### Adding vehicle using local reference and event emitter 
 
 On the dialog html file, will be like this:
 
