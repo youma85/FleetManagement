@@ -62,7 +62,7 @@ And in the typescript file, handle the received driver from the item component
   }
 ```
 
-###Show selected driver In the Details component
+### Show selected driver In the Details component
 
 ***driver list component***
 
