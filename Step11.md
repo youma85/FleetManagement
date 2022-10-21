@@ -18,6 +18,9 @@ create a variable to stock the url of the photo.
 And with AngularFireStorage get the Urls of the drivers:
 
 ```
+  import {AngularFireStorage} from "@angular/fire/compat/storage";
+  
+  ... 
   imgSrc: string;
 
   constructor(private sanitizer: DomSanitizer,
