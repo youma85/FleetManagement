@@ -24,6 +24,17 @@ service firebase.storage {
 
 and publish the modification
 
+### Install the firebase tools library
+
+```sh
+npm i -g firebase-tools@compatibleVersion
+```
+
+Then login with:
+
+```sh
+firebase login
+```
 
 ### Install the angular Firebase library
 
@@ -33,53 +44,11 @@ ng add @angular/fire
 
 choose the project in firebase recently created.
 
-IF it's blocked try the following commands:
-
-```sh
-firebase login
-firebase init
-ng add @angular/fire
-```
-
-### Build the project
-
-```sh
-> ng build
-```
-
-
-will create a dist directory
 
 ### Deploy the application
 
 ```sh
 > ng deploy
-```
-
-### Create web application on firebase
-
-Go to the home page and click on "Add an application"
-
-Choose Web.
-
-And Write an application Name: FleetManagement.
-
-Go to settings of the project, and in the "your applications" section, choose Configuration, and copy it to the environnement files:
-
-```
-export const environment = {
-  production: true,
-  firebase: {
-    apiKey: '**********************',
-    authDomain: '**********************',
-    databaseURL: '**********************',
-    projectId: '**********************',
-    storageBucket: '**********************',
-    messagingSenderId: '**********************',
-    appId: '**********************',
-    measurementId: '**********************'
-  }
-};
 ```
 
 ### configure sharedModule
@@ -90,4 +59,11 @@ add AngularFireModule and AngularFireStorageModule:
     AngularFireStorageModule
 ```
 
-
+Depending on the version of @angular/fire these files can be located on: 
+```
+@angular/fire
+```
+or 
+```
+@angular/fire/compat
+```
