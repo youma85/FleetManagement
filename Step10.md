@@ -48,6 +48,7 @@ choose the project in firebase recently created.
 ### Deploy the application
 
 ```sh
+> firebase experiments:enable webframeworks
 > ng deploy
 ```
 
