@@ -65,10 +65,7 @@ Driver feature Module must contain only the driver components
     SharedModule
   ],
   exports: [
-    DriverComponent,
-    DriverListComponent,
-    DriverItemComponent,
-    DriverDetailsComponent,
+    DriverComponent
   ]
 })
 export class DriverModule { }
@@ -86,8 +83,7 @@ And the same thing for vehicle module:
     SharedModule
   ],
   exports: [
-    VehicleComponent,
-    VehicleDialogComponent,
+    VehicleComponent
   ]
 })
 export class VehicleModule { }
