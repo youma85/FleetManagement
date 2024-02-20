@@ -21,8 +21,7 @@ In the pipe class add the following code:
     if (!value) {
       return value;
     }
-    const regex = /\w\S*/g;
-    return value.replace(regex, (str: string) => str.charAt(0).toUpperCase() + str.substr(1).toLowerCase());
+    return value.charAt(0).toUpperCase() + str.substr(1).toLowerCase();
   }
 ```
 
