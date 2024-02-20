@@ -21,8 +21,7 @@ export class ShadowDirective {
   @HostBinding('style.boxShadow')
   boxShadow = '2px 2px 12px #3f51b5';
 
-  constructor(elem: ElementRef, renderer: Renderer2) {
-    renderer.setStyle(elem.nativeElement, 'box-shadow', '2px 2px 12px #3f51b5');
+  constructor() {
   }
 
   @HostListener('mouseenter') mouseOver(): any {
