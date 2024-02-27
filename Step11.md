@@ -96,16 +96,17 @@ Edit saveDriver on the service, as follows to handle the id of new driver:
         ref.getDownloadURL().subscribe((url) => {
           this.imgSrc = url;
         });
+      } else{
+        this.imgSrc = 'assets/img/Placeholder.jpg ';
       }
   
       this.driverForm = new FormGroup({
         firstName: new FormControl(firstName),
         lastName: new FormControl(lastName),
         drivingLicense: new FormControl(drivingLicense),
-        vehicle: new FormControl(vehicle),
-        photo: new FormControl()
+        vehicle: new FormControl(vehicle)
       });
-      this.imgSrc = 'assets/img/Placeholder.jpg ';
+      
       this.selectedImage = null;
     }
   ```
