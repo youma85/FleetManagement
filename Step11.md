@@ -110,15 +110,12 @@ Edit saveDriver on the service, as follows to handle the id of new driver:
       this.selectedImage = null;
     }
   ```
-    * Change the subscription to the parameters i the OnInit Form:
+    * Change the OnInit method:
   
   ```
-    this.route.params.subscribe((params: Params) => {
-      this.id = +params['id'];
-      this.driver = this.driverService.getDriver(this.id);
-      this.editMode =  params['id'] != null;
-      this.initForm();
-    });
+    this.id = this.route.snapshot.params['id'];
+    this.driver = this.driverService.getDriver(this.id);
+    this.initForm();
     ```
     * Change the save Method as:
     
